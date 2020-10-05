@@ -5,5 +5,13 @@ document.addEventListener('DOMContentLoaded', () => {
         nav.classList.toggle("active");
         btn.classList.toggle("active");
     });
+    $(function() {
+        $('.space').on('keypress', function(e) {
+            if (e.which == 32) {
+                console.log('Space Not Allowed');
+                return false;
+            }
+        });
+    });
 
 });
