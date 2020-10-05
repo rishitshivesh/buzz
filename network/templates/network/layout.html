@@ -87,7 +87,7 @@
 
                     {% if user.is_authenticated %}
                     <li>{%if user.first_name%}
-                        <strong>{{ request.user.first_name }} {{ requset.user.last_name }}</strong> 
+                        <strong>{{ request.user.first_name }} {{ request.user.last_name }}</strong> 
                         {%else%}
                         <strong>{{ request.user.username }}</strong> {%endif%}
 
