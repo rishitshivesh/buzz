@@ -1,0 +1,35 @@
+{% extends "network/layout.html" %}
+{% block body %}
+
+<div class="card mb-3 mx-auto w-75" style="background-color:rgb(255,255,255,0.2);padding:20px;margin-top:5%;">
+    <div class="align-middle mx-auto">
+        <center>
+            <h1>Edit User Profile</h1>
+            <hr>
+            <div class="alert alert-warning" role="alert">
+                You cannot remove the default Profile Picture. Either set a new one or let it be!
+            </div>
+            <div class="form-group">
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="d-inline-flex">
+                        <div class="w-50 mb-2">
+                            <label for="f">First Name</label>
+                            <input class="form-control " id="f" autofocus type="text" name="firstname" placeholder="First Name" value="{{request.user.first_name}}" required>
+                        </div>
+                        <div class="w-50 mb-2">
+                            <label for="l">Last Name</label>
+                            <input class="form-control" i id="l" autofocus type="text" name="lastname" placeholder="Last Name" value="{{request.user.last_name}}" required>
+                        </div>
+                    </div><br>
+                    <label for="i">Profile Picture</label>
+                    <input class="form-control" type="text" id="i" name="image" value="{{request.user.image}}" required><br>
+                    <input type="submit" class="btn btn-success">
+
+                </form>
+            </div>
+            <a class="btn btn-outline-primary" href="{%url 'index'%}">Return</a>
+        </center>
+    </div>
+</div>
+{%endblock%}

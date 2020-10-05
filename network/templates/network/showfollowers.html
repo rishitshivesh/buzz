@@ -1,0 +1,21 @@
+{%extends 'network/layout.html'%}
+{%block body%}
+{%if token is True%}
+<div class="w-75 mx-auto" style="margin-top:2%;">
+    <h2 class="alert alert-warning">{{msg}}</h2>
+        <hr>
+        <br>
+        <ol style="font-size:24px;">
+            {% for follower in followers %}
+                <li>{{follow.user.first_name}} (<a href="{%url 'profile' follow.user.username%}">{{ follow.user.username }})</a></li>
+            {% endfor %}
+        </ol>
+</div>
+{%else%}
+<div class="w-75 mx-auto" style="margin-top:2%;">
+        <br>
+        <center>
+        <h1 class="alert alert-warning">{{msg}}</h1>
+</div>
+{%endif%}
+{%endblock%}

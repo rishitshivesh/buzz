@@ -1,0 +1,57 @@
+{% extends "network/layout.html" %} {% block body %}
+
+
+<div class="boxs w-75 mx-auto">
+    <div class="card-header mx-auto">
+        <center>
+            <h3>What do you want to change, {{request.user.first_name}}?</h3>
+        </center>
+    </div>
+    <div class="card-body mx-auto">
+        <form method="POST" action="{%url 'edit' post.id%}">
+            {% csrf_token %}
+            <div class="form-group mx-auto">
+                <textarea class="form-control" id="body" columns="10" maxlength='500' name="body" required autofocus>{{post.body}}</textarea>
+            </div>
+
+            <button class="btn btn-success mr-auto" type="submit">Edit</button>
+            <a href="{%url 'index'%}"><button class="btn btn-primary mr-auto">Cancel</button></a>
+            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete">Delete</button>
+
+            <div class="" id="circle">
+                <span id="circlet"></span>
+                <div class="slice">
+                    <div class="bar"></div>
+                    <div class="fill"></div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- Modal DELETE -->
+    <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="color:black;">
+        <div class="modal-dialog modal-dialog" role="document">
+            <div class="modal-content new-post-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Delete Post</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete this post?</p>
+                    <div class="modal-footer">
+                        <form method=post action="{% url 'delete' post_id=post.id %}">
+                            {% csrf_token %}
+                            <button class="btn btn-outline-danger save" type="submit" value="Delete"><i class="fa fa-check-square-o"></i> Delete</button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+{% endblock %}

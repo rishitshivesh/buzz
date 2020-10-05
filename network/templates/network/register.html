@@ -1,0 +1,72 @@
+{% extends "network/layout.html" %} {%block style%}
+<style>
+    @media(min-width:1000px) {
+        .box {
+            border: 2px solid black;
+            width: 50%;
+            margin-top: 2%;
+            margin-bottom: 2%;
+            border-radius: 15px;
+        }
+    }
+    
+    @media(max-width:1000px) {
+        .box {
+            border: 2px solid black;
+            width: 100%;
+            margin-top: 2%;
+            border-radius: 15px;
+        }
+    }
+</style>
+
+{%endblock%} {% block body %}
+<center><img src="https://imgur.com/7TRhuju.png" width="250" alt="Image" loading="lazy" style="align-self:center;" class="myclass"></center>
+<div class="align-middle">
+    <div class="box mx-auto">
+        <h2 style="text-align: center; padding:10px;">Register</h2>
+        <form action="{% url 'register' %}" method="post">
+            {% csrf_token %}
+            <div class="forms d-flex flex-column w-75 p-3 mx-auto">
+                {% if message %}
+                <br>
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">{{ message }}<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button></div>
+                {% endif %}
+                <div class="input-group mb-3">
+                    <input class="form-control" autofocus type="text" name="username" placeholder="Username" required style="background-color: rgba(0, 0, 0, 0.85); color:white; border-radius: 25px;">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="text" name="email" placeholder="Email Id" required style="background-color: rgba(0, 0, 0, 0.85); color:white;border-radius: 25px;">
+                </div>
+                <div class="d-inline-flex">
+                    <div class="w-50 mb-3">
+                        <input class="form-control " autofocus type="text" name="firstname" placeholder="First Name" required style="background-color: rgba(0, 0, 0, 0.85); color:white;border-radius: 25px;">
+                    </div>
+                    <div class="w-50 mb-3">
+                        <input class="form-control" autofocus type="text" name="lastname" placeholder="Last Name" required style="background-color: rgba(0, 0, 0, 0.85); color:white;border-radius: 25px;">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="text" name="image" placeholder="Profile Picture URL" style="background-color: rgba(0, 0, 0, 0.85); color:white;border-radius: 25px;">
+                </div>
+
+                <div class="form-group">
+                    <input class="form-control" type="password" name="password" placeholder="Password" required style="background-color: rgba(0, 0, 0, 0.85); color:white;border-radius: 25px;">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="password" name="confirmation" placeholder="Confirm Password" required style="background-color: rgba(0, 0, 0, 0.85); color:white;border-radius: 25px;">
+                </div>
+                <input class="btn btn-warning w-50 mx-auto" type="submit" value="Register" style="border-radius: 25px;">
+            </div>
+        </form>
+
+
+
+        <hr>
+        <div style="text-align: center;padding-bottom:15px; color: #fed007;">Already have an account? <a href="{% url 'login' %}">Log In here.</a> </div>
+        <div style="text-align: center;padding-bottom:15px; color:#fed007">Host your image for free <a href="http://www.imgur.com">here</a>! </div>
+    </div>
+</div>
+{% endblock %}
