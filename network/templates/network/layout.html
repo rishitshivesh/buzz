@@ -55,9 +55,9 @@
                         <div class="dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 {%if user.first_name%}
-                                <strong>{{ user.first_name }} {{ user.last_name }}</strong>
+                                <strong>{{ request.user.first_name }} {{ request.user.last_name }}</strong>
                                 {%else%}
-                                <strong>{{ user.username }}</strong>
+                                <strong>{{ request.user.username }}</strong>
                                 {%endif%}
                             </a>
 
@@ -87,8 +87,9 @@
 
                     {% if user.is_authenticated %}
                     <li>{%if user.first_name%}
-                        <strong>{{ user.first_name }} {{ user.last_name }}</strong> {%else%}
-                        <strong>{{ user.username }}</strong> {%endif%}
+                        <strong>{{ request.user.first_name }} {{ requset.user.last_name }}</strong> 
+                        {%else%}
+                        <strong>{{ request.user.username }}</strong> {%endif%}
 
                     </li>
                     <div class="dropdown-divider"></div>
