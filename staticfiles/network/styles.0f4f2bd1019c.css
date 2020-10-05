@@ -1,0 +1,139 @@
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: rgb(0, 0, 0);
+    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(0, 2, 3, 0.8186624991793592) 52%, rgba(0, 5, 7, 1) 100%);
+    color: white;
+}
+
+@media(min-width:1000px) {
+    #big {
+        display: block;
+    }
+    #small {
+        display: none;
+    }
+    textarea {
+        min-height: 30vh;
+    }
+}
+
+@media(max-width:1000px) {
+    #big {
+        display: none;
+    }
+    #small {
+        display: block;
+    }
+    textarea {
+        min-height: 50vh;
+    }
+}
+
+.dropdown-menu {
+    background: rgb(255, 222, 0);
+    background: radial-gradient(circle, rgba(255, 221, 0, 0.945) 0%, rgba(255, 222, 5, 0.979) 100%);
+}
+
+.form-control:focus {
+    border-color: #FED007;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px rgba(255, 255, 0, 0.5);
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    border: 1px solid #0de91f;
+    -webkit-text-fill-color: white;
+    -webkit-box-shadow: 0 0 0px 1000px #000 inset;
+    transition: shadow 5000s ease-in-out 2s;
+}
+
+.hov:hover {
+    color: red;
+    transition: 800ms;
+}
+
+#bt {
+    background-color: #fed107dc;
+    border: none;
+    color: white;
+    position: relative;
+    top: 0px;
+    right: 0;
+    padding: 1rem;
+    transition: transform 0.3s ease-in-out;
+}
+
+#bt.active {
+    transform: translateX(-135px);
+}
+
+#navb {
+    background-color: #000;
+    color: white;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    padding: 2rem;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+}
+
+#navb.active {
+    transform: translateX(0);
+}
+
+#navb ul {
+    padding: 0;
+    list-style-type: none;
+    margin: 0;
+}
+
+#navb ul li {
+    padding: 1rem 0;
+}
+
+#navb a:hover {
+    color: yellow;
+    transition: 2s;
+}
+
+#navb a {
+    color: white;
+    text-decoration: none;
+}
+
+.btn-circle.btn-sm {
+    width: 70px;
+    height: 70px;
+    padding: 6px 0px;
+    border-radius: 50%;
+    font-size: 8px;
+    text-align: center;
+    position: fixed;
+    bottom: 8vh;
+    right: 15px;
+}
+
+.boxs {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: black;
+    margin-top: 10%;
+    border-radius: 20px;
+    justify-content: center;
+}
+
+.container ul li {
+    margin: 3px;
+    opacity: 0.85;
+}
