@@ -7,7 +7,7 @@
         <br>
         <ol style="font-size:24px;">
             {% for entry in entries %}
-                <li>{{entry.first_name}} {{entry.last_name}} (<a href="{%url 'profile' entry.username%}">{{ entry.username }})</a></li>
+                <li>{{entry.first_name}} {{entry.last_name}} (<a href="{%url 'profile' entry.username%}">{{ entry.username }}</a>)</li>
             {% endfor %}
         </ol>
 {%else%}

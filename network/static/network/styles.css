@@ -74,7 +74,7 @@ select:-webkit-autofill:focus {
 }
 
 #bt.active {
-    transform: translateX(-135px);
+    transform: translateX(-145px);
 }
 
 #navb {
