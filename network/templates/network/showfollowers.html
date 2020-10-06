@@ -20,7 +20,7 @@
         <h1 class="alert alert-warning">{{msg}}</h1>
 </div>
 {%endif%}
-<a href="{%url 'profile' request.user.username %}" class = "btn btn-primary-outline" style="position:fixed;bottom:8vh;left:15px;">Return</a>
+<a href="{%url 'profile' request.user.username %}" class = "btn btn-outline-primary" style="position:fixed;bottom:8vh;left:15px;">Return</a>
 {%if user.is_authenticated%}
 <a href="{%url 'create'%}"><button id="open" class="btn btn-primary btn-circle btn-sm" href="#" style="font-size: small;"><img src="https://imgur.com/uckldw8.png" width=50px>+</button></a> {%endif%} {%endblock%}
 
