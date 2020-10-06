@@ -17,7 +17,8 @@ class Edit(forms.Form):
     textarea = forms.CharField(widget=forms.Textarea(attrs={'class':'form-control'}), label='')
 
 def index(request):
-    posts = Post.objects.all().order_by('id').reverse()
+    allposts = Post.objects.all().order_by('id').reverse()
+    posts = allposts.filter(public=True)
     paginator = Paginator(posts, 10)
     page_number = request.GET.get('page')
     page = paginator.get_page(page_number)
@@ -219,11 +220,12 @@ def search(request):
 @login_required(login_url='login')
 def profile(request,username):
     user = get_object_or_404(User,username=username)
-    posts = Post.objects.all().order_by('id').reverse()
-    paginator = Paginator(posts, 10)
-    page_number = request.GET.get('page')
-    page = paginator.get_page(page_number)
+    allposts = Post.objects.all().order_by('id').reverse()
     if user: 
+        posts = allposts.filter(user=user)
+        paginator = Paginator(posts, 10)
+        page_number = request.GET.get('page')
+        page = paginator.get_page(page_number)
         follower = Profile.objects.filter(target=user)
         following = Profile.objects.filter(follower=user)
         follows = Profile.objects.filter(follower=request.user, target=user)
