@@ -42,6 +42,9 @@ body {
     .card h2 {
         font-size: 20px;
     }
+    .card h4 {
+        font-size: 13px;
+    }
 }
 
 .dropdown-menu {
