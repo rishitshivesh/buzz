@@ -18,6 +18,6 @@ urlpatterns = [
     path("users/<str:username>/followthisuser/follow/followorunfollow/redirect/followedbyme",views.follow,name="follow"),
     path("following",views.following,name="following"),
     path("editprofile",views.editprofile,name="editprofile"),
-    # path("showfollowers",views.showfollowers,name="showfollowers"),
-    # path("showfollowing",views.showfollowing,name="showfollowing"),
+    path("showfollowers",views.showfollowers,name="showfollowers"),
+    path("showfollowing",views.showfollowing,name="showfollowing"),
 ]

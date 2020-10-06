@@ -9,13 +9,15 @@
             <hr>
             <img src={{user.image}} class="rounded-circle" width=300px>
             <h2>{{user.first_name}} {{user.last_name}}</h2>
-            <h4>Followers : {{followers}} | Following: {{followings}}</h4>
+
             {%if not request.user == user%}
+            <h4>Followers : {{followers}} | Following: {{followings}}</h4>
             {% if followingcheck %}
             <a class="btn btn-outline-danger" href="{%url 'follow' user.username%}" style="margin-bottom: 10px;">Unfollow</a>
             {%else%}
             <a class="btn btn-outline-primary" href="{%url 'follow' user.username%}" style="margin-bottom: 10px;">Follow</a>
             {%endif%}
+            <h4><a href="{%url 'showfollowers'%}">Followers</a> : {{followers}} | <a href="{% url 'showfollowing'%}">Following</a>: {{followings}}</h4>
             {%endif%}
         </center>
     </div>

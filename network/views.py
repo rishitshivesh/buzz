@@ -290,44 +290,39 @@ def editprofile(request):
     return render(request,"network/editprofile.html")
 
 
-# def showfollowers(request):
-#     follower = Profile.objects.filter(target=request.user)
-#     following = Profile.objects.filter(follower=request.user)
-#     # paginator = Paginator(follower, 10)
-#     # page_number = request.GET.get('page')
-#     # page = paginator.get_page(page_number)
-#     # if not folower:
-#     #     message = "Its Lonely here... Lets start by following someone!"
-#     #     token = False
-#     # else:
-#     #     message = "Looks like a great circle!"
-#     #     token = True
-#     token = True
-#     message = "Hey There"
-#     print(follower)
-#     print(following)
-#     return render(request,"network/showfollowers.html",{
-#         # "page": page,
-#         'followers': follower,
-#         'msg': message,
-#         'token' : token
-#     })
-# def showfollowing(request):
-#     follower = Profile.objects.filter(target=request.user)
-#     following = Profile.objects.filter(follower=request.user)
-#     # paginator = Paginator(follower, 10)
-#     # page_number = request.GET.get('page')
-#     # page = paginator.get_page(page_number)
-#     if not follower:
-#         message = "Its Lonely here... Lets start by gaining followers!"
-#         token = False
-#     else:
-#         message = "Looks like a great circle!"
-#         token = True
-#     print(following.targer)
-#     return render(request,"network/showfollowers.html",{
-#         # "page": page,
-#         'followers': following,
-#         'msg': message,
-#         'token' : token
-#     })
+def showfollowers(request):
+    follower = Profile.objects.filter(target=request.user)
+    # paginator = Paginator(follower, 10)
+    # page_number = request.GET.get('page')
+    # page = paginator.get_page(page_number)
+    if not follower:
+        message = "Its Lonely here... Lets start by gaining followers!"
+        token = False
+    else:
+        message = "Looks like a great circle!"
+        token = True
+    # token = True
+    # message = "Hey There"
+    return render(request,"network/showfollowers.html",{
+        # "page": page,
+        'followers': follower,
+        'msg': message,
+        'token' : token,
+    })
+def showfollowing(request):
+    following = Profile.objects.filter(follower=request.user)
+    # paginator = Paginator(follower, 10)
+    # page_number = request.GET.get('page')
+    # page = paginator.get_page(page_number)
+    if not following:
+        message = "Its Lonely here... Lets start by following someone!"
+        token = False
+    else:
+        message = "Looks like a great circle!"
+        token = True
+    return render(request,"network/showfollowing.html",{
+        # "page": page,
+        'followers': following,
+        'msg': message,
+        'token' : token
+    })
