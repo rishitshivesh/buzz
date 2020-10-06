@@ -7,7 +7,7 @@
     <h4 class="alert alert-warning">{{msg}}</h4>
         <hr>
         <br>
-        <ol style="font-size:24px;">
+        <ol class='this' >
             {% for follower in followers %}
                 <li>{{follower.follower.first_name}} {{follower.follower.last_name}}(<a href="{%url 'profile' follower.follower.username %}">{{ follower.follower.username }}</a>)</li>
             {% endfor %}
