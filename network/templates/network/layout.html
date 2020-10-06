@@ -70,7 +70,7 @@
                         </div>
                     </li>
                     <form class="form-inline my-2 my-lg-0" style="position:fixed;right:20px;top:7px" action="{%url 'search'%}" method="POST">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="q">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search Users" aria-label="Search" name="q">
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                     </form>
                     {% endif %}
@@ -112,7 +112,7 @@
                     <li>
                         <form class="form" style="width:24vw;" action="{%url 'search'%}" method="POST">
                             {% csrf_token %}
-                            <input class="form-control" type="search" placeholder="Search" aria-label="Search" name="q" autocomplete="off">
+                            <input class="form-control" type="search" placeholder="Users" aria-label="Search" name="q" autocomplete="off">
                             <button class="btn btn-outline-success" type="submit" style="width:24vw;margin-top:20px;">Search</button>
                         </form>
                     </li>
