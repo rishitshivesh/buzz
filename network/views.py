@@ -188,28 +188,31 @@ def search(request):
         fdata = request.GET.copy()
     data = fdata.get('q')
     if(data):
-        users = User.objects.all()
-        token = False
-        finallist = []
-        searchmsg = "Matching User(s) Found"
-        errmsg = "No Matching User Found"
-        for user in users:
-            fname = user.first_name
-            lname = user.last_name
-            if data.lower() in user.username or data.lower() in fname.lower() or data.lower() in lname.lower():
-                finallist.append(user)
-                token = True
-        if token is True:
-            return render(request, "network/search.html", {
-            "entries": finallist,
-            "msg": searchmsg,
-            "token":token
-        })
+        if(data==' ' or data == '   '):
+            return HttpResponseRedirect(reverse(index))
         else:
-            return render(request, "network/search.html", {
-            "msg": errmsg,
-            "token":token
-        })
+            users = User.objects.all()
+            token = False
+            finallist = []
+            searchmsg = "Matching User(s) Found"
+            errmsg = "No Matching User Found"
+            for user in users:
+                fname = user.first_name
+                lname = user.last_name
+                if data.lower() in user.username or data.lower() in fname.lower() or data.lower() in lname.lower():
+                    finallist.append(user)
+                    token = True
+            if token is True:
+                return render(request, "network/search.html", {
+                "entries": finallist,
+                "msg": searchmsg,
+                "token":token
+            })
+            else:
+                return render(request, "network/search.html", {
+                "msg": errmsg,
+                "token":token
+            })
     else:
         return HttpResponseRedirect(reverse(index))
 
