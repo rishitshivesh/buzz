@@ -269,7 +269,7 @@ def following(request):
     postlist = []
     for post in posts:
         for follower in follows:
-            if follower.target == post.user or request.user == post.user:
+            if follower.target == post.user:
                 postlist.append(post) 
     if not follows:
         return render(request, 'network/follow.html', {'msg': "Looks Lonely Here... Lets start by Following People!!"})
