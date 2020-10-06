@@ -7,7 +7,7 @@
 
 <div class="card border-secondary mb-3" style="margin-left:10%;margin-right:10%;background-color: rgba(210, 210, 205, 0.8); color:white; box-shadow: 0 4px 8px 0 rgba(255, 255, 0, 0.2), 0 6px 10px 0 rgba(255, 255, 0, 0.1);">
     <h5 class="card-header" style="color:white;">
-        <img src="{{post.user.image}}" width='30px' height ="30px" style="overflow:none;" class="rounded-circle"><strong style="color:black;margin-left:10px;">{{post.user.first_name}} {{post.user.last_name}}</strong> <a href="{%url 'profile' post.user.username%}"><span class="font-weight-lighter" style="color:rgba(54, 46, 0, 0.918); font-size:16px;">@{{post.user|title}}</a></span>
+        <img src="{{post.user.image}}" width='30px' height ="30px" style="overflow:none;" class="rounded-circle"><strong style="color:black;margin-left:10px;">{{post.user.first_name}} {{post.user.last_name}}</strong> <a href="{%url 'profile' post.user.username%}"><span class="font-weight-lighter" style="color:rgba(54, 46, 0, 0.918); font-size:16px;">@{{post.user|title}}</a>{%if post.user.verified%}<i class='bx bxs-message-square-check' style="color:rgb(0, 89, 255);" name="Verified"></i>{%endif%}</span>
         {% if request.user == post.user %}
             <a class="float-right" href={%url 'edit' post.id%}><button type="button" class="btn btn-link ed" data-toggle="modal" ><i class='bx bxs-edit' ></i></button></a>
         {%endif%}  

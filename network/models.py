@@ -8,6 +8,7 @@ from django.utils import timezone
 class User(AbstractUser):
     image = models.CharField(max_length=500,default="https://i.pinimg.com/originals/0c/3b/3a/0c3b3adb1a7530892e55ef36d3be6cb8.png")
     followers = models.ManyToManyField("self", related_name="following", blank=True, symmetrical=False)
+    verified = models.BooleanField(default=False)
     def number_of_followers(self):
         return len(self.followers.all())
     def number_of_following(self):
