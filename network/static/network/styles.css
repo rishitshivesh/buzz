@@ -30,6 +30,9 @@ body {
     textarea {
         min-height: 50vh;
     }
+    .card h5 {
+        font-size: 10px;
+    }
 }
 
 .dropdown-menu {
