@@ -7,7 +7,7 @@
         <center>
             <h1>User Profile</h1>
             <hr>
-            <img src={{user.image}} class="rounded-circle" width=300px>
+            <img src={{user.image}} class="rounded-circle" width=300px onerror="this.onerror=null; this.src='https://i.pinimg.com/originals/0c/3b/3a/0c3b3adb1a7530892e55ef36d3be6cb8.png'">
             <h2>{{user.first_name}} {{user.last_name}}{%if user.verified%}<i class='bx bxs-message-square-check' style="color:rgb(0, 89, 255);" title="Verified"></i>{%endif%}</h2>
             {%if request.user == user%}
             <h4><a href="{%url 'showfollowers'%}">Followers</a> : {{followers}} | <a href="{% url 'showfollowing'%}">Following</a>: {{followings}}</h4>
@@ -28,7 +28,7 @@
 {% for post in page %} {%if user.username == post.user.username %}
 <div class="card border-secondary mb-3" style="margin-left:10%;margin-right:10%;background-color: rgba(210, 210, 205, 0.8); color:white; box-shadow: 0 4px 8px 0 rgba(255, 255, 0, 0.2), 0 6px 10px 0 rgba(255, 255, 0, 0.1);">
     <h5 class="card-header" style="color:white;">
-        <img src="{{post.user.image}}" width='30px' height="30px" style="overflow:none;" class="rounded-circle"><strong style="color:black;margin-left:10px;">{{post.user.first_name}} {{post.user.last_name}}</strong>
+        <img src="{{post.user.image}}" width='30px' height="30px" style="overflow:none;" class="rounded-circle" onerror="this.onerror=null; this.src='https://i.pinimg.com/originals/0c/3b/3a/0c3b3adb1a7530892e55ef36d3be6cb8.png'"><strong style="color:black;margin-left:10px;">{{post.user.first_name}} {{post.user.last_name}}</strong>
         <a href="{%url 'profile' post.user.username%}"><span class="font-weight-lighter" style="color:rgba(54, 46, 0, 0.918);">@{{post.user|title}}</a></span> {% if request.user == post.user %}
         <a class="float-right" href={%url 'edit' post.id%}><button type="button" class="btn btn-link ed" data-toggle="modal" ><i class='bx bxs-edit' ></i></button></a> {%endif%}
     </h5>
