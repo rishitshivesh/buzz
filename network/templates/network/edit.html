@@ -42,9 +42,11 @@
                 <div class="modal-body">
                     <p>Are you sure you want to delete this post?</p>
                     <div class="modal-footer">
-                        <a href="{% url 'delete' post.id %}"><button class="btn btn-outline-danger save" type="submit"
-                                value="Delete"><i class="fa fa-check-square-o"></i> Delete</button></a>
-
+                        <form action="{%url 'delete' post.id%}" method="POST">
+                            {%csrf_token%}
+                            <button class="btn btn-outline-danger save" type="submit" value="Delete"><i
+                                    class="fa fa-check-square-o"></i> Delete</button>
+                        </form>
                     </div>
 
                 </div>
